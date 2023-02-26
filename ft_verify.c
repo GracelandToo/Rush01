@@ -13,16 +13,10 @@
 #include<stdio.h>
 #include<unistd.h>
 
-//necessary for testing, replace later
-int parameters[16] = {4, 3, 2, 1, 1, 2, 2, 2, 4, 3, 2, 1, 1, 2, 2, 2};
-
 /*checks if the puzzle is even solvable given input parameters
 already writes its own temporary error message and returns 0*/
-int	ft_verify_solvability(int parameters[16])
+int	ft_verify_solvability(int parameters[16], int i)
 {
-	int	i;
-
-	i = 0;
 	while (i < 4)
 	{
 		if (parameters[i] + parameters[i + 4] > 5)
@@ -42,6 +36,7 @@ int	ft_verify_solvability(int parameters[16])
 		}
 		i++;
 	}
+	return (1);
 }
 
 //verifies that there are no repeated values on any given row
@@ -77,15 +72,3 @@ int	ft_verify_columns(int comb[4][4])
 	}
 	return (1);
 }
-/*funcion incompleta que verifica la solucion general
-int	ft_verify_solution(int comb[4][4], int parameters[16])
-{
-	int	i;
-
-	i = 0;
-	if (parameters[i] == 4)
-	{
-		printf("gg");
-	}
-}
-*/
